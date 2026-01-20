@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8080/api"
+// const BASE_URL = "http://localhost:8080/api"
+const BASE_URL = "https://mini-ecom-backend-u2rw.onrender.com/api"
 const API = {
   products: {
     create: BASE_URL + "/admin/products",
