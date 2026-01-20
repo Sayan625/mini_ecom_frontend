@@ -65,7 +65,7 @@ function App() {
     <>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/explore" element={<ShopView />} />
+          <Route path="/explore" element={<ShopView fetchCart={fetchCart} />} />
           <Route path="/" element={<HomePage />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/orders" element={<OrdersPage />} />
