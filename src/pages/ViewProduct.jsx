@@ -101,7 +101,7 @@ export default function ShopView() {
   }, []);
 
   useEffect(() => {
-    // fetchCart()
+    fetchCart()
     if (user && showLoginModal) {
       setShowLoginModal(false);
     }

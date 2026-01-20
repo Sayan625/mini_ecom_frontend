@@ -19,6 +19,8 @@ import HomePage from "./pages/HomePage.jsx";
 
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
+
   const {
     page
 
@@ -36,6 +38,20 @@ function App() {
         totalPages: data.totalPages,
         totalElements: data.totalElements,
       }));
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    }
+  }
+    async function fetchCart() {
+    if (!user) return;
+    try {
+      const res = await fetch(API.cart.get + "/" + user.id, {
+        headers: { "Authorization": `Bearer ${user.token}` }
+      });
+      if (!res.ok) throw new Error("Failed to fetch cart");
+      const data = await res.json();
+      dispatch(setCart(data));
+      console.log(data)
     } catch (err) {
       console.error("Error fetching products:", err);
     }
@@ -60,7 +76,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login fetchCart={fetchCart}/>} />
 
 
       </Routes>

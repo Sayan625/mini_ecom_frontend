@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../store/authSlice";
 
 
-export default function Login({ path = null, fetchCart }) {
+export default function Login({ path = null,fetchCart }) {
     const [form, setForm] = useState({
         email: "",
         password: ""
@@ -47,6 +47,7 @@ export default function Login({ path = null, fetchCart }) {
 
 
     };
+    console.log(loading)
 
     return (
         <div className="container-fluid h-100 d-flex justify-content-center align-items-center">
@@ -78,7 +79,7 @@ export default function Login({ path = null, fetchCart }) {
                     </div>
 
                     <button className="btn btn-primary w-100" type="submit" disabled={loading}>
-                        {loading ? "Login" : <span class="spinner-border text-primary" role="status">
+                        {!loading ? "Login" : <span class="spinner-border text-primary" role="status">
                         </span>}
                     </button>
                 </form>
