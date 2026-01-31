@@ -221,7 +221,7 @@ export default function AddProduct({ fetchProducts }) {
                                 value={formData.name}
                                 onChange={handleChange}
                                 className="form-control"
-                                required
+                                
                             />
 
                             <label className="form-label text-white">Description</label>
